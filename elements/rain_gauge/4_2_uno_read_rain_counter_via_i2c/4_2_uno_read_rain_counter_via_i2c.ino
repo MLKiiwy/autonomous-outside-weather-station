@@ -1,5 +1,7 @@
 #include <Wire.h>
 
+// Uno - Basic I2C	A4 (SDA), A5 (SCL)
+
 #define ATTINY_I2C_ADDRESS 0x04
 #define DELAY_BETWEEN_REQUEST 10000
 
