@@ -3,6 +3,8 @@
         {
             "name": "Linux",
             "includePath": [
+                "/home/mlkiiwy/.arduino15/packages/esp8266/tools/**",
+                "/home/mlkiiwy/.arduino15/packages/esp8266/hardware/esp8266/2.4.2/**",
                 "/home/mlkiiwy/apps/arduino-1.8.5/hardware/arduino/avr/cores/arduino"
             ],
             "browse": {
@@ -11,7 +13,8 @@
                     "/home/mlkiiwy/apps/arduino-1.8.5/hardware/arduino/avr/cores/arduino"
                 ]
             },
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "clang-x64",
+            "forcedInclude": []
         }
     ],
     "version": 4
