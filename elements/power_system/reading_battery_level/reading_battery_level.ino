@@ -1,6 +1,6 @@
 #include <Wire.h>
-#include <MAX17043.h>   // Fuel gauge
-#include <SPI.h>        //Why? Because library supports SPI and I2C connection
+#include <MAX17043.h>
+#include <SPI.h>        // Why? Because library supports SPI and I2C connection
 
 #define DELAY_BETWEEN_READING_IN_S 5
 
@@ -11,17 +11,16 @@
 
 MAX17043 batteryMonitor;  // Fuel gauge
 
-// Fuel gauge
+// Battery infos
 float cellVoltage;
 float stateOfCharge;
 
-void readSensors() {
-  // From Fuel gauge
+void readSensor() {
   cellVoltage = batteryMonitor.getVCell();
   stateOfCharge = batteryMonitor.getSoC();
 }
 
-void initFuelGaugeSensor() {
+void initSensor() {
   batteryMonitor.reset();
   batteryMonitor.quickStart();
 }
@@ -35,11 +34,11 @@ void setup() {
   Serial.print(DELAY_BETWEEN_READING_IN_S);
   Serial.println("s");
 
-  initFuelGaugeSensor();
+  initSensor();
 }
 
 void loop() {
-  readSensors();
+  readSensor();
 
   Serial.print("Voltage = ");
   Serial.println(cellVoltage);
