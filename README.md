@@ -8,13 +8,19 @@ TODO : put a picture here
 
 # Elements
 
-Here is the detailled list of logical elements that compose the station.
+Here is the detailed list of logical elements that compose the station.
 
 ## Station 
 
 ## Main card with Wifi communication
 
-## Power system  (Solar powered battery with fuel indicator)
+## Power module (Solar powered battery with level  via I2C)
+
+This module provide 4 outputs, 2 for power (+3.7V/GND) and 2 for battery level (I2C).
+The battery is continuously charged by solar panel, with surcharge protection.
+This module is autonomous and can be reuse in some other ESP8266 project.
+
+[Detailed infos (Build instructions, components, sample code)](./elements/power_module/README.md)
 
 ## Rain gauge (Autonomous + low power consumption)  
 
