@@ -1,6 +1,5 @@
 #include <Wire.h>
 #include <MAX17043.h>
-#include <SPI.h>        // Why? Because library supports SPI and I2C connection
 
 #define DELAY_BETWEEN_READING_IN_S 5
 

@@ -2,5 +2,5 @@
     "board": "esp8266:esp8266:nodemcuv2",
     "port": "/dev/ttyUSB0",
     "configuration": "CpuFrequency=80,VTable=flash,FlashSize=4M1M,LwIPVariant=v2mss536,Debug=Disabled,DebugLevel=None____,FlashErase=none,UploadSpeed=115200",
-    "sketch": "elements/power_system/reading_battery_level/reading_battery_level.ino"
+    "sketch": "elements/power_module/reading_battery_level/reading_battery_level.ino"
 }
