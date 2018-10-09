@@ -14,7 +14,7 @@ Here is the detailed list of logical elements that compose the station.
 
 ## Main card with Wifi communication
 
-## Power module (Solar powered battery with level  via I2C)
+## Power module (Solar powered battery with level via I2C)
 
 This module provide 4 outputs, 2 for power (+3.7V/GND) and 2 for battery level (I2C).
 The battery is continuously charged by solar panel, with surcharge protection.
@@ -32,7 +32,19 @@ With a low power and complete autonomy even if main card is in sleep mode.
 
 ## Temperature sensor
 
-## Atmospheric Pressure
+## Atmospheric Pressure (+ station inside temperature and altitude)
+
+This module provide atmospheric pressure, the temperature and the altitude.
+This module is soldered directly on the main card with the ESP8266. (not autonomous, cannot be replace)
+
+[Detailed infos (Build instructions, components, sample code)](./elements/barometric_sensor/README.md)
+
+## Moisture sensor (or Hygrometer)
+
+This module you can read the humidity of the soil with a probe.
+This module provide a 4 pin interface (2 for power (3.7V/GND), 1 for waking up the module, 1 for com/reading)
+
+[Detailed infos (Build instructions, components, sample code)](./elements/moisture_sensor/README.md)
 
 ## Sun sensor (Light level sensor)
 
