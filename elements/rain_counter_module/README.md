@@ -53,7 +53,11 @@ When the ESP8266 want to ask via I2C the rain count, before it put to high a wak
 
 ## Schema
 
-TODO
+![Rain counter module schema](./images/rain_counter_module_schema.png "Rain counter module schema")
+
+See also the pinout of the ATTiny85
+
+![ATTiny85 pinout](./images/attiny-pinout.png "ATTiny85 pinout")
 
 ## Required libraries 
 
