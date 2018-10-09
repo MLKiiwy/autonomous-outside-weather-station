@@ -22,7 +22,13 @@ This module is autonomous and can be reuse in some other ESP8266 project.
 
 [Detailed infos (Build instructions, components, sample code)](./elements/power_module/README.md)
 
-## Rain gauge (Autonomous + low power consumption)  
+## Rain counter module (Autonomous + low power consumption)  
+
+This module provide a 5 pin interface: 2 for power (+3.7V/GND), 1 for waking up the module, 2 for communication (I2C)
+This module should count the number of millimeter of rain. 
+With a low power and complete autonomy even if main card is in sleep mode.
+
+[Detailed infos (Build instructions, components, sample code)](./elements/rain_counter_module/README.md)
 
 ## Temperature sensor
 
