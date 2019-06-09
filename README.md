@@ -30,7 +30,12 @@ With a low power and complete autonomy even if main card is in sleep mode.
 
 [Detailed infos (Build instructions, components, sample code)](./elements/rain_counter_module/README.md)
 
-## Temperature sensor
+## Temperature and humidity sensor
+
+This module you can read the outside temperature and humidity.
+This module provide a 3 pin interface: 2 for power (3.7V/GND), 1 for reading the data.
+
+[Detailed infos (Build instructions, components, sample code)](./elements/temperature_humidity_sensor/README.md)
 
 ## Atmospheric Pressure (+ station inside temperature and altitude)
 
@@ -46,7 +51,12 @@ This module provide a 4 pin interface (2 for power (3.7V/GND), 1 for waking up t
 
 [Detailed infos (Build instructions, components, sample code)](./elements/moisture_sensor/README.md)
 
-## Sun sensor (Light level sensor)
+## Light level sensor (Sun sensor)
+
+This module you can read the level of the sun light (in lux)
+This module provide a 4 pin interface: 2 for power (3.7V/GND), 2 for communication (I2C)
+
+[Detailed infos (Build instructions, components, sample code)](./elements/light_level_sensor/README.md)
 
 ## Web Interface (Running on a home server)
 
