@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <math.h>
 
 // Uno - Basic I2C	A4 (SDA), A5 (SCL)
 
@@ -22,7 +23,7 @@ void setup()
 
 void loop()
 {
-  Serial.println("Read rain gauge value : ");
+  Serial.println("Read rain gauge value in half millimeter : ");
   readGauge();
   Serial.println(rainGaugeLastValue);
 
@@ -36,7 +37,9 @@ void readGauge()
 
   while (Wire.available())
   {
-    rainGaugeLastValue = Wire.read();
+    // Why doing /10 => because the attiny count around 10 times close of the circuit for one real close
+    // Need to find a way to avoid these jumps (maybe with a capacitor?)
+    rainGaugeLastValue = ceil(Wire.read() / 10);
   }
   digitalWrite(ATTINY_WAKEUP_PIN, LOW);
 }

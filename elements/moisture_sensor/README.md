@@ -57,3 +57,10 @@ mv arduino-moisture-senso/libraries/ ~/Arduino/libraries
 
 Use the code [Reading moisture](./read_moisture_sensor/read_moisture_sensor.ino) to test the module.
 This code will just continuously ask the module the value of humidity of the soil.
+
+
+### Issues
+
+Don't use PIN D4 (GPIO 2) for the reading Pin.
+There is an issue with this Pin if your ESP8266 goes to deepsleep, it remains the pin High ...
+I use the GPIO 12 (D6) with no issue in deep sleep (The state remains low)

@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <math.h>
 #include <SPI.h> //Why? Because library supports SPI and I2C connection
 
 // I2C Configuration
@@ -10,7 +11,7 @@
 #define ATTINY_WAKEUP_PIN 0 // D3 - GPIO0
 #define DELAY_BETWEEN_REQUEST 10000
 
-uint8_t rainGaugeLastValue = 0;
+uint16_t rainGaugeLastValue = 0;
 
 void setup()
 {
@@ -27,7 +28,7 @@ void setup()
 
 void loop()
 {
-  Serial.println("Read rain gauge value : ");
+  Serial.println("Read rain gauge value in half millimeter : ");
   readGauge();
   Serial.println(rainGaugeLastValue);
 
@@ -41,7 +42,9 @@ void readGauge()
 
   while (Wire.available())
   {
-    rainGaugeLastValue = Wire.read();
+    // Why doing /10 => because the attiny count around 10 times close of the circuit for one real close
+    // Need to find a way to avoid these jumps (maybe with a capacitor?)
+    rainGaugeLastValue = ceil(Wire.read() / 10);
   }
   digitalWrite(ATTINY_WAKEUP_PIN, LOW);
 }

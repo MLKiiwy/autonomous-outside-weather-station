@@ -34,8 +34,13 @@ Estimated cost around 12.10 euros
 ## Using a pre-built rain collector
 
 For that we use a pre-built rain collector from a commercial weather station.
-This module is simply a rain collector that emit close a circuit, for each millimeter collected. 
+This module is simply a rain collector that emit close a circuit, for each half millimeter collected. 
 Its exactly the same behavior if you press a push button for every millimeter of rain.
+
+Note: my rain collector has a surface of 0.0055 m2.
+1mm of rain = 1Liter/m2 so here to have 1mm, you need 5.5ml.
+
+During my test, I discover that my rain collector close the circuit twice for each millimeter, so the precision is of 0.5mm.
 
 ## Use a ATTiny as an autonomous module to count signal from rain collector
 
@@ -107,5 +112,14 @@ Increase internal variable and return its value on each Arduino I2C request.
 
 ### 6 - Final example using ESP8266 instead of Arduino Uno
 
+## Issue with rain count not corresponding to number of closing on the rain collector
 
+There is a difference between the number of tap of the rain collector, and what give the ATTiny85.
+After several measure, I have decide to apply this formula to get the closest right value:
 
+```c
+ceil(value /10)
+```
+
+Of course it's an hack, I suppose the signal when the collector close the circuit create some "Jumps".
+A way to fix it will be to clear the signal, maybe with a capacitor?
