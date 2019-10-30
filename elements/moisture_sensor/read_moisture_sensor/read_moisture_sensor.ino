@@ -1,6 +1,6 @@
 #include <MoistureSensor.h>
 
-#define MOISTURE_SENSOR_SWITCH 2 // D4
+#define MOISTURE_SENSOR_SWITCH 12 // D6
 #define MOISTURE_SENSOR_ANALOG_READ A0 // A0
 #define NUM_READINGS 50
 
@@ -27,15 +27,15 @@ float readMoistureSensor() {
 
   // let the sensor warm up, the initial readings are not very accurate
   delay(DELAY_AFTER_MOISTURE_SENSOR_POWER_UP_IN_MS);
-  
+
   for (int i = 0; i < NUM_READINGS; i++) {
     ms.reset();
     ms.read();
     delay(1);
   }
- 
+
   moistureSensorLastValue = ms.getSmoothedReading();
-   
+
   digitalWrite(MOISTURE_SENSOR_SWITCH, LOW);
 
   return moistureSensorLastValue;
@@ -44,7 +44,7 @@ float readMoistureSensor() {
 void loop() {
   Serial.print("Moisture = ");
   Serial.println(readMoistureSensor());
-  
+
   delay(DELAY_IN_S * 1000);
 }
 

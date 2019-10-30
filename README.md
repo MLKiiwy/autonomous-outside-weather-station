@@ -4,7 +4,10 @@ Build a complete autonomous outside weather station that can stay for years with
 The station communicate the weather data to your home server OR a web server.
 You can at any time access the graphs and last sensors values, from a web interface (smartphone compatible).
 
-TODO : put a picture here
+Total estimated cost of the full station: 40 euros.
+
+![Module](./images/station.jpg "Station setup outside")
+![Module](./images/station_2.jpg "Station setup outside 2")
 
 # Elements
 
@@ -12,7 +15,35 @@ Here is the detailed list of logical elements that compose the station.
 
 ## Station 
 
+The station is build to be outside.
+For that I use a small bird house.
+
+Estimated cost: 5 euros
+
+![Module](./images/station_inside.jpg "Station inside")
+
 ## Main card with Wifi communication
+
+The main card consist only of a ESP8266 + multiple connexions to each modules.
+And for easy on/off, I have put a switch and a LED between the power module and the ESP8266.
+
+Estimated cost: 3 euros
+
+### Special Wire for DeepSleep
+
+I use the deep sleep feature to save more power, and only take values every 10 minutes.
+
+For that : Connect D0 to RST and use the deepSleep method in the code.
+
+### Wifi Manager
+
+You can install it from the library manager in arduino IDE
+- [Wifi Manager] (https://github.com/tzapu/WiFiManager)
+
+### MQTT
+
+You can install it from the library manager in arduino IDE
+- [PubSubClient] (https://github.com/knolleary/pubsubclient)
 
 ## Power module (Solar powered battery with level via I2C)
 
@@ -25,7 +56,7 @@ This module is autonomous and can be reuse in some other ESP8266 project.
 ## Rain counter module (Autonomous + low power consumption)  
 
 This module provide a 5 pin interface: 2 for power (+3.7V/GND), 1 for waking up the module, 2 for communication (I2C)
-This module should count the number of millimeter of rain. 
+This module should count the number of millimeter of rain. (precision 0.5 mm)
 With a low power and complete autonomy even if main card is in sleep mode.
 
 [Detailed infos (Build instructions, components, sample code)](./elements/rain_counter_module/README.md)
@@ -60,10 +91,20 @@ This module provide a 4 pin interface: 2 for power (3.7V/GND), 2 for communicati
 
 ## Web Interface (Running on a home server)
 
-# Build instructions
+I use Node-Red with the plugin for web UI.
 
-## Complete list of required materials
+![Module](./images/web_interface.png "Web interface")
 
-## Complete wire schemes (with all elements together)
+## Install MQTT Broker on rapsberry Pi
 
+See https://www.instructables.com/id/How-to-Use-MQTT-With-the-Raspberry-Pi-and-ESP8266/
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install mosquitto -y
+sudo apt-get install mosquitto-clients -y
+```
 ## Final programs
+
+See [Final program](./src/main.ino)

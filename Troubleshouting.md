@@ -20,3 +20,14 @@ See https://github.com/esp8266/Arduino for more details
 ## Compile and use a particular file
 
 See the settings of VSCode extension in .vscode/arduino.json, you can only have one .ino file set.
+
+## Problem: cannot upload a new program to ESP8266
+
+It's due to the deepsleep (pin wired for deep sleep)
+
+So in case of 
+```
+Connecting........_____....._____....._
+```
+
+Press RST during the connection and it will continue the upload.

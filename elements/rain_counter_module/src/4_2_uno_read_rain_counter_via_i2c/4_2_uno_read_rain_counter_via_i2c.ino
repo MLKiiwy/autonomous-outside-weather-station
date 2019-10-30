@@ -1,11 +1,12 @@
 #include <Wire.h>
+#include <math.h>
 
 // Uno - Basic I2C	A4 (SDA), A5 (SCL)
 
 #define ATTINY_I2C_ADDRESS 0x04
 #define DELAY_BETWEEN_REQUEST 10000
 
-uint8_t valueReceived = 0;
+uint16_t valueReceived = 0;
 
 void setup()
 {
@@ -24,8 +25,10 @@ void loop()
   while (Wire.available())
   {
 
-    valueReceived = Wire.read();
-    Serial.println("Read rain gauge value : ");
+    // Why doing /10 => because the attiny count around 10 times close of the circuit for one real close
+    // Need to find a way to avoid these jumps (maybe with a capacitor?)
+    valueReceived = ceil(Wire.read() / 10);
+    Serial.println("Read rain gauge value in half millimeter : ");
     Serial.println(valueReceived);
   }
 
