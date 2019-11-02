@@ -311,18 +311,16 @@ void publishMqttMessages() {
 }
 
 void gotoDeepSleep() {
-  delay(300);
-  digitalWrite(MOISTURE_SENSOR_SWITCH, HIGH);
 
   // Optimization for avoid no battery
   deepSleepTime = SLEEP_TIME_IN_S;
-  if (stateOfCharge < 50) {
+  if (stateOfCharge < 60 && stateOfCharge >= 40) {
     deepSleepTime = SLEEP_TIME_IN_S * 2;
-  } else if (stateOfCharge < 35) {
+  } else if (stateOfCharge < 40 && stateOfCharge >= 30 ) {
     deepSleepTime = SLEEP_TIME_IN_S * 3;
-  } else if (stateOfCharge < 25) {
+  } else if (stateOfCharge < 30 && stateOfCharge >= 20) {
     deepSleepTime = SLEEP_TIME_IN_S * 5;
-  } else if (stateOfCharge < 10) {
+  } else if (stateOfCharge < 20) {
     deepSleepTime = SLEEP_TIME_IN_S * 10;
   }
 
